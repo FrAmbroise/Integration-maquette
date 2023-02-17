@@ -1,7 +1,7 @@
 <template>
   <div class="main-infos">
-    
-    <div class="wallet-summary">
+    <div class="flex-row">
+      <div class="wallet-summary">
       <h2>Total balance</h2>
       <div class="btc-number">
         <p class="big-number">0.874995497</p>
@@ -9,6 +9,15 @@
       </div>
       <p class="moni">$42,874.98</p>
     </div>
+    <div class="portfolio">
+      <p class="bg-black">Portfolio</p>
+      <p>Funding</p>
+      <p>Assets</p>
+      <p>P2P</p>
+    </div>
+  
+  </div>
+
 
     <img src="@/assets/The_Graph_TM.png" alt="">
     <div class="see-coin">
@@ -81,6 +90,11 @@ opacity: 0.8;
 color:white;
 margin:  8px 0 8px 0;
 }
+.flex-row{
+  display: flex;
+  gap: 60px;
+}
+
 .see-coin{
   font-family: 'Poppins';
 font-style: normal;
@@ -91,6 +105,23 @@ color: white;
 justify-content: space-between;
 padding-left: 25px;
 
+}
+.bg-black{
+  background-color: #000;
+  border-radius: 8px;
+  padding: 4px;
+}
+.portfolio{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+  background: #292727;
+border-radius: 16px;
+padding: 16px;
+width: 60%;
+gap:16px;
 }
 .recent-transaction p{
   font-family: 'Inter';
@@ -196,7 +227,12 @@ button{
   border:none;
   padding: 8px;
 }
-
+@media(max-width: 1200px){
+  .portfolio{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 @media(max-width: 900px){
   .main-infos{
     margin-left: 40px;
@@ -210,6 +246,21 @@ button{
   }
   .squiggle{
     display: none;
+  }
+  .portfolio{
+    display: flex;
+  }
+  .flex-row{
+    flex-direction: column;
+    gap:24px;
+    margin-bottom: 40px;
+  }
+}
+@media(max-width: 600px){
+  .portfolio{
+    display: grid;
+    width: auto;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media(max-width: 500px){
